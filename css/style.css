@@ -67,7 +67,6 @@ a:hover {
 }
 
 .content-wrapper {
-  width: 95%;
   margin: 0 auto;
   max-width: 1400px;
 }
@@ -113,13 +112,14 @@ section h2 {
 }
 
 .mainvisual {
+  width: 100%;
+  height: auto;
   position: relative;
 }
 .topkeyvisual {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: 0 15%;
-  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 90%);
-  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 90%);
 }
 .topkeyvisual::before {
   content: '';
@@ -129,22 +129,8 @@ section h2 {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
-  object-position: 0 15%;
-  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 90%);
-  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 90%);
 }
-.mainvisual::after {
-  content: '';
-  position: absolute;
-  top: 60%;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: rgb(253, 90, 90);
-  z-index: -1;
-  -webkit-clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 85%);
-  clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 85%);
-}
+
 .heading h2 {
   position: absolute;
   top: 50%;
@@ -164,11 +150,26 @@ section h2 {
 }
 
 .aboutus {
-  position: relative;
-  top: -20px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 80%;
   margin: 0 auto;
   color: #fff;
+  z-index: 3;
+}
+.aboutus::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 150%;
+  height: 150%;
+  background: rgb(253, 90, 90);
+  z-index: -1;
+  -webkit-clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 85%);
+  clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 85%);
 }
 .about {
   text-align: center;
@@ -176,9 +177,9 @@ section h2 {
 
 .point {
   position: relative;
-  top: -100px;
+  margin: 0;
   width: 100%;
-  margin-top: 120px;
+  padding: 80px 50px 0 50px;
   background-image: url(../images/AdobeStock_262106415_Preview.jpeg);
   background-size: cover;
   z-index: -2;
@@ -221,26 +222,45 @@ section h2 {
 }
 
 .program h2, .price h2, .visit h2, .faq h2 {
-  margin-bottom: 70px;
+  margin-bottom: 50px;
 }
 
+.program,
+.price,
+.visit,
+.join,
+.blog {
+  margin: 150px auto;
+  text-align: center;
+}
+.program .content-wrapper,
+.price .content-wrapper,
+.join .content-wrapper,
+.blog .content-wrapper {
+  width: 90%;
+}
 .container {
   margin: 0 auto;
-  padding: 40px;
-  width: 85%;
   color: #333;
-  margin-bottom: 70px;
 }
-.slick-slide {
+.single-item {
   text-align: center;
-  color: #333;
+}
+.single-item img {
+  margin: 30px 0;
+}
+.single-item p {
+  margin-bottom: 50px;
 }
 
 .price table{
-  width: 85%;
+  width: 100%;
+  background-color: #fff;
+  padding: 5px;
   border-collapse:separate;
   border-spacing: 5px;
   margin: 0 auto;
+  box-shadow: 5px 10px 10px 5px rgba(0, 0, 0, 0.4);
 }
 .price table tr{
   border-bottom: solid 2px white;
@@ -286,7 +306,6 @@ section h2 {
   position: relative;
   height: auto;
   text-align: center;
-  margin-top: 100px;
   padding: 100px 0 50px 0;
 }
 .visit-image {
@@ -330,6 +349,7 @@ section h2 {
 .tour, .trial {
   background-color: #fff;
   padding: 10px;
+  width: 50%;
 }
 .tour h3, .trial h3 {
   font-size: 15px;
@@ -364,10 +384,7 @@ section h2 {
   font-size: 13px;
 }
 
-.join {
-  margin-top: 100px;
-  text-align: center;
-}
+
 .join h3 {
   display: inline-block;
   border: 3px solid #333;
@@ -376,12 +393,11 @@ section h2 {
 }
 .join ul {
   display: flex;
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
 }
 .join ul li {
   width: 25%;
-  padding: 20px;
+  padding: 20px 10px;
 }
 .join ul li p {
   font-weight: bold;
@@ -398,8 +414,8 @@ section h2 {
 .faq {
   width: 100%;
   text-align: center;
-  margin: 70px auto;
-  padding: 70px;
+  margin: 70px 0;
+  padding: 100px;
   color: #333;
   background-color: #eee;
 }
@@ -410,6 +426,7 @@ section h2 {
 }
 .faq-list-item {
   margin:10px;
+  padding: 5px 0;
   border-bottom:1px solid rgb(200, 200, 200);
   position: relative;
   cursor: pointer;
@@ -465,8 +482,8 @@ section h2 {
 .floor-content .btn a {
   display: block;
   font-size: 0.8rem;
-  color: #000;
-  border: 1px solid #000;
+  color: #333;
+  border: 1px solid #333;
   width: 200px;
   line-height: 60px;
   text-align: center;
@@ -482,12 +499,13 @@ section h2 {
   position: relative;
 }
 .company-map {
-  margin-top: 50px;
+  margin: 50px 0;
 }
 .company-contents {
   display: flex;
+  width: 90%;
+  margin: 0 auto;
   justify-content: space-between;
-  margin-top: 50px;
 }
 .company {
   width: 40%;
@@ -502,11 +520,11 @@ section h2 {
   margin: 10px auto;
 }
 .times {
-  width: 50%;
+  width: 55%;
 }
 .time01,
 .time02 {
-  margin-bottom: 10px;
+  margin: 10px 0;
   width: 100%;
 }
 .time01 tr td,
@@ -525,6 +543,7 @@ section h2 {
   left: 0;
   width: 100%;
   height: 100px;
+  z-index: 10;
 }
 .footer-list {
   display: flex;
@@ -532,12 +551,22 @@ section h2 {
   padding-top: 15px;
   align-items: center;
   color: #333;
+  position: relative;
 }
 .footer-list ul {
   display: flex;
 }
+.footer-list h3 {
+  padding-left: 30px;
+}
+.footer-list .page-top {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .footer-list nav {
   margin-left: auto;
+  padding-right: 30px;
 }
 .footer-list ul li {
   margin-left: 30px;
@@ -704,6 +733,7 @@ section h2 {
  }
  /* ここまでfloorのcss */
 
+ 
 @media screen and (max-width: 1024px) {
   body {
     min-width: 320px;
@@ -718,30 +748,9 @@ section h2 {
     font-size: 19px;
   }
   
-  .mainvisual::after {
-    content: '';
-    position: absolute;
-    top: 55%;
-    height: 56%;
-  }
-  .heading h2 {
-    position: absolute;
-    top: 45%;
-  }
-  .heading p {
-    position: absolute;
-    top: 50%;
-  }
-  .aboutus {
-    position: relative;
-    top: -10px;
-  }
-  
   .point h2 {
     position: static;
-    margin: 0;
-    padding-top: 100px;
-    color: #fff;
+    padding-top: 80px;
   }
   .point ul {
     display: flex;
@@ -756,16 +765,11 @@ section h2 {
     color: red;
     font-size: large;
   }
+  .point ul li h3 {
+    text-align: left;
+    margin: 10px 0;
+  }
 
-  .visit {
-    padding: 60px 0 50px 0;
-  }
-  .visit h2 {
-    margin-bottom: 50px;
-  }
-  .visit-contents {
-    width: 80%;
-  }
 
   .floor-keyvisual img {
     width: 100%;
@@ -903,45 +907,47 @@ section h2 {
   .mainvisual::after {
     content: '';
     position: absolute;
-    top: 49%;
-    height: 63%;
-  }
-  .aboutus {
-    position: relative;
-    top: 0;
+    height: 45%;
   }
 
+  .point h2 {
+    margin: 0 auto;
+  }
   .point {
     position: relative;
     height: 100%;
-    top: -110px;
   }
   .point ul {
     display: block;
     width: 100%;
-    padding: 30px;
-    height: 100%;
+    padding: 50px 0;
   }
   .point ul li {
+    display: flex;
     background-color: #fff;
     width: 100%;
+    height: auto;
+    padding: 20px;
     margin: 10px auto;
-    vertical-align: middle;
   }
   .point ul li figure {
-    float: left;
     margin-right: 15px;
-    width: 40%;
+    width: 90%;
   }
   .point ul li span {
     color: red;
     font-size: large;
   }
 
+  .join,
+  .visit,
+  .blog {
+    margin: 80px auto;
+  }
   .join ul {
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
   }
   .join ul li {
@@ -949,20 +955,10 @@ section h2 {
     padding: 20px;
   }
 
-  .price table{
-    width: 90%;
-  }
-
   .visit-contents {
-    display: block;
     width: 90%;
     position: relative;
     top: 50px;
-  }
-  .visit-contents::after {
-    content: '';
-    width: 60%;
-    height: 40%;
   }
 
   .blog ul {
@@ -970,18 +966,28 @@ section h2 {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    margin: 30px auto;
+    margin: 50px auto;
     padding: 15px 0;
-    background-color: rgba(253, 90, 90, 0.7);
+    background-color: rgba(0, 0, 0, 0);
   }
   .blog ul li {
-    width: 40%;
+    width: 45%;
     position: relative;
-    margin: 0 10px;
+    margin: 10px 10px;
+  }
+  .blog ul li span {
+    display: inline-block;
+    margin: 10px 0;
+  }
+  .blog ul li p {
+    margin: 0;
+  }
+  .blog ul li a {
+    color: #333;
   }
 
   .faq {
-    padding: 30px;
+    padding: 50px;
   }
 
   .floor-keyvisual img {
